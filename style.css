@@ -1,0 +1,439 @@
+/* === FONT === */
+@font-face {
+  font-family: 'semibold';
+  src: url('font/FenomenSans-SemiBold.ttf');
+}
+@font-face {
+  font-family: 'book';
+  src: url('font/FenomenSans-Book.ttf');
+}
+@font-face {
+  font-family: 'reguler';
+  src: url('font/FenomenSans-Regular.ttf');
+}
+
+/* === DASAR BODY === */
+body {
+  margin: 0;
+  padding-top: 90px;
+  background-color: #fff;
+  overflow-x: hidden;
+  height: 60vh;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'semibold';
+}
+p, li, label, input, a, button {
+  font-family: 'book';
+}
+p {
+  font-size: 18px;
+  color: #545454;
+}
+
+/* === NAVBAR === */
+.navbar {
+  height: 90px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  top: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 1000; /* mengatur posisi elemen*/
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+}
+
+.navbar-nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 10px 30px 10px 10px;
+  position: relative;
+}
+
+.navbar-nav li {
+  margin-right: 25px;
+  position: relative;
+}
+
+.navbar-nav a {
+  color: black;
+  font-family: 'reguler';
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-nav a:hover {
+  color: #007bff;
+}
+
+/* === DROPDOWN === */
+.hov {
+  display: none;
+  position: absolute;
+  background-color: white;
+  list-style: none;
+  padding: 5px;
+  margin: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.navbar-nav li:hover .hov {
+  display: block;
+}
+.hov a {
+  color: black;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 5px 10px;
+  display: block;
+  white-space: nowrap;
+}
+.hov a:hover {
+  background-color: white;
+}
+
+/* === BUTTON UP === */
+.btn-up {
+  z-index: 5; /*mengatur urutan sususnan elemen*/
+  position: fixed;
+  bottom: 55px;
+  right: 10px;
+}
+.pp {
+  border-radius: 50%;
+  object-fit: cover;
+}
+.btn-up img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.btn-up img:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* === FOOTER === */
+footer {
+  z-index: 2;
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  padding: 2rem 2vw;
+  position: relative;
+}
+
+.col {
+  border-radius: 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 28%;
+}
+.col2, .col3 {
+  padding-left: 20px;
+  background-color: #dfdfdf3f;
+  border-radius: 10px;
+}
+
+footer img {
+  width: 30px;
+  border-radius: 50%;
+  opacity: 50%;
+  text-align: center;
+  transform: scale(1.1);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+.dark-mode footer img {
+  width: 30px;
+  border-radius: 50%;
+  opacity: 100%;
+  text-align: center;
+  transform: scale(1.1);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+.social {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+footer a {
+  text-decoration: none;
+  color: inherit;
+}
+footer a p:hover {
+  transition: 0.3s ease-in-out;
+  color: #000;
+  text-decoration: underline;
+}
+.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.link img:hover {
+  transform: scale(1.5);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 700px) {
+  footer {
+    flex-direction: column;
+    padding: 5rem 20vw;
+  }
+  .col {
+    width: 100%;
+  }
+}
+
+/* === THEME TOGGLE === */
+.theme-toggle {
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  gap: 10px;          
+  margin: 0;
+  padding: 0;
+}
+.theme-toggle button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  line-height: 1;      
+  padding: 5px;
+  vertical-align: middle;
+  transition: transform 0.3s ease;
+}
+.theme-toggle button:hover {
+  transform: scale(1.2);
+  color: #007bff;
+}
+
+/* === MODE TERANG === */
+.light-mode {
+  background-color: white;
+  color: black;
+}
+.light-mode nav {
+  background-color: white;
+}
+.light-mode a {
+  color: #333;
+}
+
+/* === MODE GELAP (DARK MODE) === */
+.dark-mode {
+  background-color: #1e1e1e;
+  color: white;
+}
+
+/* Navbar */
+.dark-mode nav {
+  background-color: #111;
+}
+.dark-mode a {
+  color: white;
+}
+.dark-mode .navbar-brand {
+  color: white;
+}
+
+/* Dropdown */
+.dark-mode .hov {
+  background-color: #222 !important;
+  border: 1px solid #333;
+  border-radius: 5px;
+}
+.dark-mode .hov li a {
+  color: #f1f1f1 !important;
+}
+.dark-mode .hov li a:hover {
+  background-color: #333 !important;
+  color: #4da3ff !important;
+}
+
+/* Destination Section */
+.dark-mode .destination {
+  background-color: #2a2a2a;
+  color: white;
+}
+.dark-mode .destination input,
+.dark-mode .destination button {
+  background-color: #444;
+  color: white;
+  border: 1px solid #666;
+}
+.dark-mode .destination label {
+  color: #ddd;
+}
+.dark-mode .destination button {
+  background-color: #007bff;
+}
+.dark-mode .destination button:hover {
+  background-color: #0056cc;
+}
+
+/* Syarat Section */
+.dark-mode .syarat-container {
+  background-color: #2a2a2a;
+  color: white;
+}
+.dark-mode .syarat-container h2 {
+  border-bottom: 3px solid white;
+}
+.dark-mode .syarat-item {
+  background-color: #3a3a3a;
+  color: white;
+}
+.dark-mode .syarat-item h3 {
+  color: #4da3ff;
+}
+.dark-mode .syarat-item p,
+.dark-mode .syarat-item ul,
+.dark-mode .syarat-item li {
+  color: #ddd;
+}
+.dark-mode .syarat-item a {
+  color: #66b3ff;
+}
+
+/* Artikel Section */
+.dark-mode .artikel-section div div h2{
+  color: white;
+  background-color: #1e1e1e;
+}
+.dark-mode .artikel-card {
+  background-color: #2a2a2a;
+  color: white;
+  border: 1px solid #444;
+}
+.dark-mode .artikel-content h3 {
+  color: white;
+}
+.dark-mode .artikel-content p {
+  color: #ddd;
+}
+
+/* Footer */
+.dark-mode #footer {
+  background-color: #111;
+  color: #eee;
+  border-top: 1px solid #333;
+}
+.dark-mode #footer h3 {
+  color: #fff;
+}
+
+.dark-mode #footer p {
+  color: #ccc;
+}
+.dark-mode #footer a p {
+  color: #ddd;
+}
+.dark-mode #footer a p:hover {
+  color: #4da3ff;
+}
+.dark-mode #footer .social img {
+  filter: brightness(0.8);
+  transition: filter 0.3s ease;
+}
+.dark-mode #footer .social img:hover {
+  filter: brightness(1);
+}
+
+/* PROFIL */
+.dark-mode .profil-container {
+  background-color: #1e1e1e !important;
+  color: #f5f5f5 !important;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+.dark-mode .profil-container h2 {
+  color: white;
+  border-bottom: 3px solid #4da3ff;
+}
+.dark-mode .profil-container p,
+.dark-mode .profil-container li {
+  color: #ddd;
+}
+
+/* KONTAK */
+.dark-mode .container {
+  background-color: #1e1e1e !important;
+  color: #f5f5f5 !important;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+.dark-mode .sidebar {
+  background-color: #1e1e1e !important;
+  color: #f5f5f5 !important;
+}
+.dark-mode input[type="text"],
+.dark-mode input[type="email"],
+.dark-mode input[type="tel"],
+.dark-mode textarea {
+  background-color: #2c2c2c !important;
+  color: #f1f1f1 !important;
+  border: 1px solid #555 !important;
+}
+.dark-mode input::placeholder,
+.dark-mode textarea::placeholder {
+  color: #aaa !important;
+}
+.dark-mode input:focus,
+.dark-mode textarea:focus {
+  background-color: #333 !important;
+  border-color: #4da3ff !important;
+  box-shadow: 0 0 6px rgba(77, 163, 255, 0.5);
+}
+.dark-mode button {
+  background-color: #2b2b2b !important;
+  color: #fff !important;
+}
+.dark-mode button:hover {
+  background-color: #0056cc !important;
+}
+
+/* Sidebar dan Artikel */
+.dark-mode .container p,
+.dark-mode .container h1,
+.dark-mode .container h2,
+.dark-mode .container h3,
+.dark-mode .container h4,
+.dark-mode .container h5,
+.dark-mode .container li,
+.dark-mode .container span {
+  color: #f1f1f1 !important;
+}
+.dark-mode .sidebar,
+.dark-mode .sidebar a,
+.dark-mode .sidebar span,
+.dark-mode .sidebar li {
+  color: #f1f1f1 !important;
+}
+.dark-mode .sidebar-list li a {
+  color: #f1f1f1 !important;
+}
+.dark-mode .sidebar-list li a:hover {
+  color: #66b3ff !important;
+}
+.dark-mode .article h1,
+.dark-mode .article h4 {
+  color: #ffffff !important;
+}
+.dark-mode .article-meta {
+  color: #cccccc !important;
+}

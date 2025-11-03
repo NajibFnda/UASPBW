@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .container {
+            margin: auto;
+            max-width: 100%;
+            padding: 10px;
+            color: rgb(58, 58, 58);
+            padding-right: 16%;
+            padding-left: 16%;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .image {
+            display: flex;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            height: 300px;
+        }
+        
+        .images {
+            width: 100%;
+            flex-shrink: 0;
+        }
+        .images img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .row{
+            display: flex;
+            padding-top: 20px;
+            gap: 20px;
+        }
+        .row h2{
+            text-align: center;
+            color: #333;
+            margin-top: 50px;
+            margin-bottom: 10px;
+            font-size: 1.8rem; 
+            border-bottom: 3px solid #007bff;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input:focus, 
+        textarea:focus {
+            background-color: #f0f8ff;
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+            transition: all 0.3s ease-in-out;
+        }
+
+
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            width: 400px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        button {
+            display: block;
+            background-color: #203eff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            width: 100px  ;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #3954ff;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .contact-info p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Nav -->
+    <nav class="navbar">
+    <h1 style="font-size: 25px;" class="navbar-brand">MancingKing</h1>
+        <ul class="navbar-nav">
+            <li>
+                <a href="index.html">Beranda</a>
+            </li>
+            <li>
+                <a href="#">Profil</a>
+                <ul class="hov">
+                    <li><a href="profil.html">Profil</a></li>
+                    <li><a href="kontak.html">Kontak</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Panduan</a>
+                <ul class="hov">
+                    <li><a href="artikel-tips.html">Tips</a></li>
+                    <li><a href="artikel-ulasan.html">Ulasan</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Hubungi Kami</a>
+                <ul class="hov">
+                    <li><a href="kritiksaran.html">Kritik & Saran</a></li>
+                    <li><a href="lapor.html">lapor</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="gallery.html">Galeri</a>
+            </li>
+            <li class="theme-toggle">
+              <button id="darkBtn">🌙</button>
+              <button id="lightBtn">☀️</button>
+            </li>
+        </ul>
+    </nav>
+    <!-- Nav END -->
+
+    <div class="image">
+        <div class="images" id="img1">
+            <img src="pict/kontak.png" alt="Slide 1">
+       </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div>
+                <h2>Hubungi Kami</h2>
+                <form>
+                <label for="name">Nama</label>
+                <input type="text" id="name" name="name" placeholder="Masukkan nama Anda" required>        
+                <label for="name">Nama Belakang</label>
+                <input type="text" id="name" name="name" placeholder="Masukkan nama belakang Anda" required>
+                    
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Masukkan email Anda" required>
+                
+                <label for="phone">Nomor telepon</label>
+                <input type="tel" id="phone" placeholder="+62" name="phone">
+                
+                <label for="message">Pesan</label>
+                <textarea id="message" name="message" placeholder="Ketik pesan Anda" required></textarea>
+                
+                <button type="submit">Kirim</button>
+                </form>
+            </div>
+            <div>
+                <h2 style="margin-left: 20px;">Lokasi</h2>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126715.8430503283!2d110.33466279362825!3d-7.024552224583055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708b4d3f0d024d%3A0x1e0432b9da5cb9f2!2sKota%20Semarang%2C%20Jawa%20Tengah!5e0!3m2!1sid!2sid!4v1736163158398!5m2!1sid!2sid" width="600" height="450" style="border:0; margin: 20px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+
+        <!-- button up  -->
+        <a href="#top" class="btn-up" >
+            <img src="pict/btn-up.png" width="35" height="35" class="pp"/>
+        </a>
+
+
+    <footer id="footer">
+      <div class="col col1">
+        <h3>MancingKing</h3>
+        <div class="social">
+          <a href="" class="link"><img src="pict/icon-ig.jpg" alt="" /></a>
+          <a href="" class="link"><img src="pict/icon-ig.jpg" alt="" /></a>
+          <a href="" class="link"><img src="pict/icon-ig.jpg" alt="" /></a>
+        </div>
+        <p style="color: #818181; font-size: smaller">
+          2025 © All Rights Reserved
+        </p>
+      </div>
+      <div class="col col2">
+        <h3>Link Cepat</h3>
+        <a href="index.html"><p>Beranda</p></a>
+        <a href="profil.html"><p>Profil</p></a>
+        <a href="gallery.html"><p>Galeri</p></a>
+      </div>
+      <div class="col col3">
+        <h3>Artikel</h3>
+        <a href="artikel-tips.html"><p>Tips Memancing</p></a>
+        <a href="artikel-ulasan.html"><p>Rekomendasi tempat</p></a>
+      </div>
+    </footer>
+<script src="script.js"></script>
+</body>
+</html>
