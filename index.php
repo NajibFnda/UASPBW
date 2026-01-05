@@ -1,0 +1,485 @@
+<?php 
+session_start();
+
+if (!isset($_SESSION['status']) || $_SESSION['status'] != "login") {
+    header("location:login.php?pesan=belum_login");
+    exit();
+}
+
+include 'header.php'; 
+?>
+    <style>   
+      .slider {
+        width: 100%;
+        height: 450px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .slides {
+        display: flex;
+        width: 300%;
+        height: 100%;
+        transition: transform 0.5s ease-in-out;
+      }
+
+      .slide {
+        width: 100%;
+        flex-shrink: 0;
+        position: relative;
+      }
+
+      .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      input[type="radio"] {
+        display: none;
+      }
+
+      #slide1:checked ~ .slides {
+        transform: translateX(0);
+      }
+
+      #slide2:checked ~ .slides {
+        transform: translateX(-100%);
+      }
+
+      #slide3:checked ~ .slides {
+        transform: translateX(-200%);
+      }
+
+      .navigation {
+        position: absolute;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+      }
+
+      .navigation label {
+        width: 45px;
+        height: 7px;
+        background-color: rgba(255, 255, 255, 0.7);
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .navigation label:hover {
+        background-color: #fff;
+      }
+
+      input[type="radio"]:checked + label {
+        background-color: #333;
+      }
+      .text-overlay a {
+        text-decoration: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 24px;
+        text-align: center;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        padding: 10px;
+      }
+
+      /* SLIDER END */
+
+      /* DESTINATION */
+      .destination {
+        background-color: #eaf2ff;
+        border-radius: 10px;
+        padding: 20px 40px;
+        max-width: 800px;
+        margin: 20px auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .container h1 {
+        font-size: 1.5rem;
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      .form {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: space-between;
+      }
+
+      .form-group {
+        flex: 1 1 30%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      label {
+        font-size: 0.9rem;
+        margin-bottom: 5px;
+        color: #555;
+      }
+
+      input[type="text"],
+      input[type="date"] {
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+      }
+
+      input[type="date"]:disabled {
+        background-color: #ccc;
+        color: #666;
+        cursor: not-allowed;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 1rem;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+        flex: 1 1 100%;
+      }
+
+      button:hover {
+        background-color: #0056cc;
+      }
+      /* DESTINATION END */
+
+      /* SYARAT */
+      .syarat-container {
+        margin: 40px auto;
+        max-width: 100%;
+        padding: 70px;
+        padding-right: 10%;
+        padding-left: 10%;
+        background-color: #fff;
+        border-radius: 8px;
+      }
+
+      .syarat-container h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 30px;
+        font-size: 1.8rem;
+        border-bottom: 3px solid #007bff;
+        display: inline-block;
+        padding-bottom: 5px;
+      }
+
+      .syarat-content {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .syarat-item {
+        flex: 1;
+        padding: 10px 15px;
+        border-radius: 5px;
+        background-color: #f9f9ff;
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+      }
+
+      .syarat-item h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+        color: #007bff;
+      }
+
+      .syarat-item p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: #555;
+        margin-bottom: 10px;
+      }
+
+      .syarat-item ul {
+        list-style: decimal;
+        margin: 0;
+        padding-left: 20px;
+        color: #333;
+        font-size: 0.9rem;
+      }
+
+      .syarat-item ul ul {
+        list-style: circle inside;
+      }
+
+      .syarat-item a {
+        color: #007bff;
+        text-decoration: none;
+      }
+
+      .syarat-item a:hover {
+        text-decoration: underline;
+      }
+      /* SYARAT END */
+
+      /* Artikel Section */
+      .artikel-section {
+        text-align: center;
+        padding: 70px;
+        padding-right: 10%;
+        padding-left: 10%;
+      }
+
+      .artikel-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+      }
+
+      /* Bagian Teks Artikel */
+      .artikel-text {
+        flex: 1;
+        max-width: 300px;
+        text-align: left;
+        text-align: center;
+      }
+
+      .artikel-text h2 {
+        font-size: 2rem;
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .artikel-text p {
+        font-size: 1rem;
+        color: #666;
+      }
+
+      /* Bagian Card Artikel */
+      .artikel-container {
+        flex: 3;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+      }
+
+      .artikel-card {
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        max-width: 250px;
+        width: 100%;
+        overflow: hidden;
+        text-align: left;
+        transition: transform 0.3s ease;
+      }
+
+      .artikel-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .artikel-card img {
+        width: 100%;
+        height: auto;
+      }
+
+      .artikel-content {
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .artikel-content h3 {
+        font-size: 1.2rem;
+        color: #333;
+        margin: 0;
+      }
+
+      .artikel-content p {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 15px;
+      }
+
+      .artikel-content .button {
+        align-self: start;
+        background: #007bff;
+        color: #fff;
+        text-decoration: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        transition: background 0.3s ease;
+      }
+
+      .artikel-content .button:hover {
+        background: #0056b3;
+      }
+    </style>
+
+    <!-- SLIDER -->
+    <div class="slider">
+      <input type="radio" name="slide" id="slide1" checked />
+      <input type="radio" name="slide" id="slide2" />
+      <input type="radio" name="slide" id="slide3" />
+
+      <div class="slides">
+        <div class="slide">
+          <img src="artikel/tutor2.png" alt="Slide 1" />
+          <div class="text-overlay">
+            <a href="artikel-tips.php">
+              <h1>Tips Memancing Ikan Bagi Pemula</h1>
+            </a>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="artikel/artikel1.jpg" alt="Slide 1" />
+          <div class="text-overlay">
+            <a href="artikel-ulasan.php">
+              <h1>4 Rekomendasi Tempat Pemancingan</h1>
+            </a>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="artikel/artikel2.jpg" alt="Slide 1" />
+          <div class="text-overlay">
+            <a href="artikel-tips.php">
+              <h1>Tips Memancing Ikan Bagi Pemula</h1>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="navigation">
+        <label for="slide1"></label>
+        <label for="slide2"></label>
+        <label for="slide3"></label>
+      </div>
+    </div>
+    <!-- SLIDER END -->
+     
+    <div class="destination">
+        <h1>Ayo Pilih Tanggal & Tujuan Memancingmu Disini!</h1>
+        
+        <form class="form" action="proses_booking.php" method="POST">
+            <div class="form-group">
+                <label for="location">Lokasi</label>
+                <input type="text" name="lokasi" placeholder="-Lokasi Mancing-" required />
+            </div>
+            <div class="form-group">
+                <label for="start-date">Tanggal Mulai</label>
+                <input type="date" name="tgl_mulai" value="2025-11-04" required />
+            </div>
+            <div class="form-group">
+                <label for="end-date">Tanggal Selesai</label>
+                <input type="date" name="tgl_selesai" value="2025-12-04" required />
+            </div>
+            
+            <button type="submit" name="submit_booking">Pilih Tempat</button>
+        </form>
+    </div>
+
+    <!-- SYARAT -->
+    <div class="syarat-container">
+      <h2>Syarat dan Prosedur Mancing</h2>
+      <div class="syarat-content">
+        <div class="syarat-item">
+          <h3>Pengantar</h3>
+          <p>
+            Mancing adalah kegiatan menangkap ikan dengan menggunakan alat
+            pancing. Kegiatan ini bisa dilakukan di berbagai tempat, seperti
+            sungai, danau, laut, atau kolam. Mancing tidak hanya sekedar untuk
+            mendapatkan ikan, tetapi juga sering dianggap sebagai hobi atau
+            rekreasi yang menyenangkan.
+          </p>
+        </div>
+        <div class="syarat-item">
+          <h3>Syarat Mancing</h3>
+          <p>Berikut merupakan beberapa syarat ketika Anda ingin memancing:</p>
+          <ul>
+            <li>
+              Memiliki peralatan memancing yang lengkap dan sesuai, seperti
+              joran, reel, tali pancing, kail, umpan, dan perlengkapan lainnya.
+            </li>
+            <li>
+              Memahami dan mengikuti aturan dan peraturan setempat mengenai
+              kegiatan memancing, seperti batasan waktu, lokasi, dan jenis ikan
+              yang boleh ditangkap.
+            </li>
+            <li>
+              Memahami teknik memancing yang sesuai dengan jenis ikan yang
+              diburu untuk meningkatkan peluang menangkap ikan dengan aman dan
+              efisien.
+            </li>
+          </ul>
+        </div>
+        <div class="syarat-item">
+          <h3>Apa yang Harus Dibawa?</h3>
+          <p>Berikut barang yang wajib Anda bawa:</p>
+          <ul>
+            <li>
+              Joran dan reel, sesuai dengan jenis ikan yang ingin dipancing.
+            </li>
+            <li>Kail, pilih ukuran yang tepat untuk ikan target.</li>
+            <li>Tali pancing dengan kekuatan yang cukup.</li>
+            <li>Umpan, baik alami atau buatan.</li>
+            <li>Pelampung, pemberat, dan snap untuk penempatan umpan.</li>
+            <li>Kantong atau wadah ikan untuk menyimpan hasil tangkapan.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- SYARAT END -->
+
+    <section class="artikel-section">
+      <div class="artikel-wrapper">
+        <!-- Bagian Teks Artikel -->
+        <div class="artikel-text">
+          <h2>Artikel</h2>
+          <p>Seputar Mancing.</p>
+        </div>
+
+        <!-- Bagian Card Artikel -->
+        <div class="artikel-container">
+          <div class="artikel-card">
+            <img src="artikel/ulasan.png" alt="Artikel 1" />
+            <div class="artikel-content">
+              <h3>4 Rekomendasi Tempat Pemancingan di Semarang</h3>
+              <p>
+                Memancing merupakan hobi yang banyak digemari oleh warga
+                Semarang. Aktivitas ini bisa melatih kesabaran dan memberikan
+                rasa..
+              </p>
+              <a href="artikel-ulasan.php" class="button">Baca Selengkapnya</a>
+            </div>
+          </div>
+          <div class="artikel-card">
+            <img src="artikel/tips.jpg" alt="Artikel 2" />
+            <div class="artikel-content">
+              <h3>Tips Memancing Ikan Bagi Pemula</h3>
+              <p>
+                Melakukan hobi memancing menghabiskan waktu di tepi danau atau
+                sungai sambil menunggu gigitan ikan, bisa menjadi momen yang..
+              </p>
+              <a href="artikel-tips.php" class="button">Baca Selengkapnya</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <?php include 'footer.php'; ?>

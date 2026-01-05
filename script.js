@@ -1,14 +1,20 @@
 document.addEventListener("DOMContentLoaded", function() {
-  const darkBtn = document.getElementById("darkBtn");
-  const lightBtn = document.getElementById("lightBtn");
+    console.log("JavaScript MancingKing: Siap!");
 
-  darkBtn.addEventListener("click", () => {
-    document.body.classList.add("dark-mode");
-    document.body.classList.remove("light-mode");
-  });
+    const darkBtn = document.getElementById("darkBtn");
+    const lightBtn = document.getElementById("lightBtn");
 
-  lightBtn.addEventListener("click", () => {
-    document.body.classList.add("light-mode");
-    document.body.classList.remove("dark-mode");
-  });
+    if (darkBtn && lightBtn) {
+        darkBtn.addEventListener("click", () => {
+            document.body.classList.add("dark-mode");
+            document.body.classList.remove("light-mode");
+            console.log("Mode: Gelap");
+        });
+
+        lightBtn.addEventListener("click", () => {
+            document.body.classList.add("light-mode");
+            document.body.classList.remove("dark-mode");
+            console.log("Mode: Terang");
+        });
+    }
 });

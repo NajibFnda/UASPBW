@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .image {
+            display: flex;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            height: 300px;
+        }
+        
+        .images {
+            width: 100%;
+            flex-shrink: 0;
+        }
+        .images img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .container {
+            margin: auto;
+            max-width: 100%;
+            padding: 10px;
+            color: rgb(58, 58, 58);
+            padding-right: 16%;
+            padding-left: 16%;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <h1 style="font-size: 25px;" class="navbar-brand">MancingKing</h1>
+            <ul class="navbar-nav">
+                <li>
+                    <a href="index.php">Beranda</a>
+                </li>
+                <li>
+                    <a href="#">Profil</a>
+                    <ul class="hov">
+                        <li><a href="profil.php">Profil</a></li>
+                        <li><a href="kontak.php">Kontak</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Panduan</a>
+                    <ul class="hov">
+                        <li><a href="artikel-tips.php">Tips</a></li>
+                        <li><a href="artikel-ulasan.php">Ulasan</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Hubungi Kami</a>
+                    <ul class="hov">
+                        <li><a href="kritiksaran.php">Kritik & Saran</a></li>
+                        <li><a href="lapor.php">lapor</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="gallery.php">Galeri</a>
+                </li>
+                <li class="theme-toggle">
+                  <button id="darkBtn">🌙</button>
+                  <button id="lightBtn">☀️</button>
+                </li>
+            </ul>
+      </nav>
+
+    <div class="image">
+        <div class="images" id="img1">
+            <img src="pict/galeri.png" alt="Slide 1">
+        </div>
+    </div>
+      
+    <div class="container">
+        <h1>Galeri</h1>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="gallery/tangkapan.jpg" alt="Image 1">
+            </div>
+            <div class="gallery-item">
+                <img src="gallery/tangkapan2.jpg" alt="Image 2">
+            </div>
+            <div class="gallery-item">
+                <img src="gallery/tangkapan3.jpg" alt="Image 3">
+            </div>
+            <div class="gallery-item">
+                <img src="gallery/tangkapan4.jpg" alt="Image 4">
+            </div>
+            <div class="gallery-item">
+                <img src="gallery/tangkapan.jpg" alt="Image 5">
+            </div>
+            <div class="gallery-item">
+                <img src="gallery/tangkapan2.jpg" alt="Image 6">
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <footer id="footer">
+      <div class="col col1">
+        <h3>MancingKing</h3>
+        <div class="social">
+          <a href="" class="link"><img src="pict/icon-ig.jpg" alt="" /></a>
+          <a href="" class="link"><img src="pict/icon-ig.jpg" alt="" /></a>
+          <a href="" class="link"><img src="pict/icon-ig.jpg" alt="" /></a>
+        </div>
+        <p style="color: #818181; font-size: smaller">
+          2025 © All Rights Reserved
+        </p>
+      </div>
+      <div class="col col2">
+        <h3>Link Cepat</h3>
+        <a href="index.php"><p>Beranda</p></a>
+        <a href="profil.php"><p>Profil</p></a>
+        <a href="gallery.php"><p>Galeri</p></a>
+      </div>
+      <div class="col col3">
+        <h3>Artikel</h3>
+        <a href="artikel-tips.php"><p>Tips Memancing</p></a>
+        <a href="artikel-ulasan.php"><p>Rekomendasi tempat</p></a>
+      </div>
+    </footer>
+<script src="script.js"></script>
+</body>
+</html>

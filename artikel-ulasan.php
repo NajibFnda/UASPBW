@@ -1,0 +1,147 @@
+<?php include 'header.php'; ?>
+    <title>4 Rekomendasi Tempat Pemancingan di Semarang yang Murah dan Populer</title>
+    <style>
+        .container {
+            margin: auto;
+            max-width: 100%;
+            padding: 10px;
+            color: rgb(58, 58, 58);
+            padding-right: 16%;
+            padding-left: 16%;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            background-color: #0056b3;
+            color: white;
+            padding: 10px 20px;
+        }
+
+        .main-content {
+            display: flex;
+            flex: 1;
+            padding: 20px;
+            gap: 20px;
+        }
+        .article {
+            flex: 3;
+            margin-right: 20px;
+        }
+
+        .article-image {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .article-meta {
+            color: gray;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .sidebar {
+            flex: 1;
+            background-color: #ffffff;
+            padding: 20px;
+            margin-top: 20px;
+            position: sticky;
+            top: 10px;    
+            right: 16%; 
+            width: 200px;
+            align-self: flex-start;
+        }
+
+        .sidebar-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar-list li {
+            margin-bottom: 15px;
+        }
+
+        .sidebar-list li a {
+            text-decoration: none;
+            color: #000000;
+            font-weight: bold;
+        }
+        
+        .sidebar-list li a:hover{
+            color: #007bff;
+        }
+
+        .sidebar-list li span {
+            display: block;
+            font-size: 0.8em;
+            color: gray;
+        }
+
+
+        .sidebar-nav {
+            border-bottom: 1px solid grey;
+            list-style: none;
+            margin-top: 60px;
+            padding: 0;
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 20px;
+        }
+            
+        .sidebar-nav li a {
+            border-bottom: 2px solid #007bff;
+            text-decoration: none;
+            color: #000000;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .sidebar-nav li a:hover {
+            color: #007bff;
+        }
+    </style>
+    <div class="container">
+            <div class="main-content">
+                <div class="article">
+                    <h1 style="font-size: 40px;">4 Rekomendasi Tempat Pemancingan di Semarang yang Murah dan Populer</h1>
+                    <img src="artikel/ulasan.png" alt="mancing king" class="article-image">
+                    <p class="article-meta">12 Juli 2022 &nbsp;|&nbsp; Artikel</p>
+                    <p>Memancing merupakan hobi yang banyak digemari oleh warga Semarang. Aktivitas ini bisa melatih kesabaran dan memberikan rasa puas ketika mendapatkan ikan. Ada beberapa tempat pemancingan di Semarang yang bisa dicoba saat libur akhir pekan. </p>
+                    <p>Dikutip dari buku Petunjuk Praktis Memancing Ikan Air Tawar. Khairuman dan Khairul A. (2003:78), memancing dilakukan di kolam pemancingan yang sudah disediakan khusus untuk memancing. Para pemancing perlu memilih tempat yang nyaman agar bisa konsentrasi penuh saat memancing. </p>
+                    <h3>Rekomendasi Tempat Pemancingan di Semarang yang Populer</h3>
+                    <p>4 Rekomendasi tempat pemancingan di Semarang di bawah ini perlu dicoba karena murah dan populer. Tempat pemancingan ini selalu ramai dikunjungi wisatawan, khususnya laki-laki saat libur akhir pekan sambil nongkrong bersama teman sebayanya.</p>
+                    <h4>1. Pemancingan TJ Makmur</h4>
+                    <p>Pemancingan TJ Makmur merupakan kolam yang dijadikan tempat wisata sekaligus menyalurkan hobi memancing yang nyaman. Pemancingan ini buka 24 jam, sehingga wisatawan bisa memancing kapanpun tanpa khawatir kolam ini tutup. </p>
+                    <p>Walaupun buka 24 jam, waktu yang paling bagus dan nyaman untuk memancing saat pagi hingga sore hari. Hal ini karena saat malam hari penerangan yang tersedia kurang maksimal. </p>
+                    <p>Ikan yang bisa dipancing di kolam pemancingan ini ada ikan gurame, nila, lele, dan ikan bandeng. Untuk memancing di sini, wisatawan perlu membayar tarif mulai Rp5.000 per orang.</p>
+                    <p>Alamat: Tinjomoyo, Kecamatan Banyumanik, Kota Semarang, Jawa Tengah 50262</p>
+                    <h4>2. Lesehan dan Pemancingan Baron</h4>
+                    <p>Tempat pemancingan Baron ini sangat unik, karena ikan yang sudah dipancing bisa diolah langsung dan disantap di restoran. Restoran sekaligus tempat pemancingan ini memang menjadi rekreasi keluarga yang populer dan menyenangkan.</p>
+                    <p>Tempat ini sangat nyaman dan enak untuk acara kumpul kantor, rapat, dan acara lainnya. Selain bisa menyantap makanan yang enak, juga bisa memancing langsung bersama teman-teman. Jam buka tempat ini mulai pukul 10.00-20.00 pada hari Selasa-Minggu.</p>
+                    <p>Alamat: Blok N1, Jl. Puri Anjasmoro, Tawangsari, Tambakharjo, Semarang Barat, Kota Semarang, Jawa Tengah 50144.</p>
+                    <h4>3. Pemancingan Lamper Mijen Kunto</h4>
+                    <p>Tempat pemancingan ini seringkali dijadikan tempat turnamen saat hari libur nasional, seperti HUT Indonesia. Untuk memancing di sini, tarif yang perlu dibayar sangat murah meriah, yaitu mulai Rp2.000 per orang. </p>
+                    <p>Ikan yang bisa dipancing sangat beragam. Ada ikan patin, mas, nila, dan masih banyak lagi. Tempat ini buka mulai pukul 06.00-00.00 WIB. </p>
+                    <p>Alamat: Lamper Tengah, Kecamatan Semarang Selatan, Kota Semarang, Jawa Tengah 50248</p>
+                    <h4>4. Pemancingan Pondok Daud</h4>
+                    <p>Pemancingan Pondok Daud memiliki area yang cukup luas. Sehingga cukup banyak wisatawan yang bisa memancing di kolam pemancingan ini. Pada hari Jumat, kolam pemancingan ini tutup dan buka mulai hari Senin-Kamis, Sabtu-Minggu mulai pukul 07.00-00.00 WIB.</p> 
+                    <p>Alamat: Jl. Ampel Sari Raya, RT.1/RW.23, Muktiharjo Kidul, Kecamatan Pedurungan, Kota Semarang, Jawa Tengah 50197</p>
+                </div>
+    
+                <div class="sidebar">
+                    <ul class="sidebar-nav">
+                        <li><a href="#">Artikel</a></li>
+                    </ul>
+                
+                    <ul class="sidebar-list">
+                        <li><a href="artikel-tips.php">Tips Memancing Ikan Bagi Pemula</a> <span>12-07-2022 15:48:06</span></li>
+                        <li><a href="artikel-ulasan.php">4 Rekomendasi Tempat Pemancingan di Semarang yang Murah dan Populer</a> <span>8-07-2022 15:31:51</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    <?php include 'footer.php'; ?>
