@@ -16,7 +16,6 @@ if (isset($_GET['id'])) {
         echo "Gagal menghapus: " . mysqli_error($conn);
     }
 } else {
-    // Jika mencoba akses langsung tanpa ID, kembalikan ke admin
     header("Location: admin.php");
 }
 ?>

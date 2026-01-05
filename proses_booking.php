@@ -2,12 +2,10 @@
 include 'koneksi.php';
 
 if (isset($_POST['submit_booking'])) {
-    // Ambil data dari form
     $lokasi  = mysqli_real_escape_string($conn, $_POST['lokasi']);
     $mulai   = $_POST['tgl_mulai'];
     $selesai = $_POST['tgl_selesai'];
 
-    // Query simpan ke database
     $query = "INSERT INTO booking (lokasi, tgl_mulai, tgl_selesai) 
               VALUES ('$lokasi', '$mulai', '$selesai')";
 
